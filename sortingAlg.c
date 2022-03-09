@@ -77,7 +77,7 @@ int MERGE(int *a,int p,int q,int r){
 
 int mergeSort(int *a,int p,int r){
 	if(p<r){
-		q = (int *)floor((p+r)/2);
+		int q = (int)floor((p+r)/2);
 		mergeSort(a,p,q);
 		mergeSort(a,q+1,r);
 		MERGE(a,p,q,r);
