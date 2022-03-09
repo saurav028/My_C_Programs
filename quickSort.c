@@ -40,7 +40,7 @@ void print(int a[],int n){
 	}
 }
 
-int main(){
+int main(int argc, char* argv[]){
 	int p[len];
 	printf("enter the array of size %d:\n",len);
 	for(int j=0;j<len;j++){
