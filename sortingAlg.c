@@ -42,47 +42,7 @@ int *createArray(int *a,int aLen){
 	return a;
 }
 
-int MERGE(int *a,int p,int q,int r){
-	int sizeOfL,sizeOfR;
-	sizeOfL=q-p+1;
-	sizeOfR=r-q;
-	int *leftArr,*rightArr;
-	leftArr = (int *)malloc((sizeOfL+1)*sizeof(int));
-	rightArr = (int *)malloc((sizeOfR+1)*sizeof(int));
 
-	for(int i=0;i<sizeOfL;i++){
-		leftArr[i]=a[p+i];
-	}
-
-	for(int j=0;j<sizeOfR;j++){
-		rightArr[j]=a[q+j+1];
-	}
-	
-	leftArr[sizeOfL]=INFINITY;
-	rightArr[sizeOfR]=INFINITY;
-	int i=0;
-	int j=0;
-
-	for(int k=p;k<=r;k++){
-		if (leftArr[i]<=rightArr[j]){
-			a[k]=leftArr[i];
-			i++;}
-		else 
-		{ a[k]=rightArr[j];
-			j++;
-		}
-	}
-}
-
-
-int mergeSort(int *a,int p,int r){
-	if(p<r){
-		int q = (int)floor((p+r)/2);
-		mergeSort(a,p,q);
-		mergeSort(a,q+1,r);
-		MERGE(a,p,q,r);
-	}
-}
 int main(){
 	int i,*a,choice=0;
 	a = (int *)malloc(len*sizeof(int));
@@ -94,10 +54,6 @@ int main(){
 		switch(choice){
 			case 1:a = createArray(a,len);break;
 			case 2:a = insertionSort(a,len);
-			       printf("your sorted array is:");
-			       print(a,len);
-			       break;
-			case 3:a = mergeSort(a,0,len);
 			       printf("your sorted array is:");
 			       print(a,len);
 			       break;
